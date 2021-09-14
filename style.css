@@ -1,0 +1,219 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-size: 60%;
+}
+
+img {
+    width: 350px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+h1,h2,h3,h4 {
+    display: block;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+nav {
+    font-family: 'Orbitron', sans-serif;
+}
+
+p {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+/* NAV */
+
+nav img {
+    display: block;
+    margin: 0 auto;
+}
+
+ul {
+    display: flex;
+    margin: 0 auto;
+    padding: 0;
+    align-items: baseline;
+}
+
+li {
+    margin: 30px auto 30px auto;
+    list-style-type: none;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.nav_separator {
+    font-size: 20px;
+}
+
+/* NAV END */
+
+/* Launches START */
+
+.patch {
+    max-width: 100px;
+}
+
+.container_launches img {
+    border-radius: 10%;
+}
+
+.container_launches_rocket img {
+    border-radius: 10%;
+}
+
+/* launches END */
+
+/* ABOUT START */
+
+
+
+/* ABOUT END */
+
+/* History START */
+
+.container_history {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    border: solid black;
+    border-radius: 50%;
+}
+
+.container_history_details a {
+    font-size: 25px;
+    border-bottom: solid black 1px;
+}
+
+/* History END */
+
+/* CONTACT START */
+.contact_container {
+    display: block;
+    margin: 40px auto 0 auto;
+    width: 300px;
+    box-shadow: 0px 0px 31px 1px rgba(0,0,0,0.42);
+}
+
+.container_company_links {
+    margin: 20px;
+    font-size: 20px;
+}
+
+.container_company_links a {
+    margin: 20px;
+    border-bottom: solid black 1px;
+}
+
+
+form {
+    margin: 0 auto;
+    width: 400px;
+}
+
+input {
+    margin: 15px;
+    min-width: 300px;
+}
+
+textarea {
+    resize: none;
+}
+
+label {
+    font-weight: 700;
+}
+
+button {
+    margin-top: 20px;
+    height: 50px;
+    width: 300px;
+    border-radius: 10px;
+    border-style: outset;
+    box-shadow: 0px 0px 2px 2px;
+    transition: 0.5s;
+}
+
+button:active {
+    border-style: inset;
+    box-shadow: none;
+    transform: scale(0.9);
+}
+
+.contactform {
+    background-color: grey;
+}
+
+.formError {
+    display: none;
+    margin: 0;
+    padding: 0;
+    color: rgb(156, 65, 65);
+}
+
+.container {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.display {
+    margin: 0 auto;
+    width: 700px;
+}
+
+.card {
+    flex: 1;
+    flex-shrink: 0;
+    flex-grow: 0;
+    text-align: center;
+    margin: 50px;
+    background-color: rgb(24, 163, 163);
+    min-width: 300px;
+    height: 250px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 3px rgb(0, 0, 0);
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+
+/* CONTACT END */
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+
+.loader {
+    border: 2rem solid darkgrey;
+    border-radius: 50%;
+    border-top: 2rem solid black;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+     0% {
+         transform: rotate(0deg);
+     }
+     100% {
+         transform: rotate(360deg);
+     }
+}
