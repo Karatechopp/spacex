@@ -136,6 +136,10 @@ footer p {
     margin: 30px auto 30px auto;
 }
 
+.container_history_details {
+    margin-bottom: 30px;
+}
+
 .container_history_details a {
     font-size: 25px;
     border-bottom: solid black 1px;
