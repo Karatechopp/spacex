@@ -20,13 +20,13 @@ async function fetchCompanyInfo(url) {
         `
 
         container_company_links.innerHTML = `
-        <a href="${json.links.website}">Official website</a>
+        <a href="${json.links.website}" target="_blank"><img src="_images/spacex_x.png" class="link_icon">Official website</a>
         <p></p>
-        <a href="${json.links.flickr}">Flickr</a>
+        <a href="${json.links.flickr}" target="_blank"><img src="_images/flickr.svg" class="link_icon">Flickr</a>
         <p></p>
-        <a href="${json.links.twitter}">Twitter</a>
+        <a href="${json.links.twitter}" target="_blank"><img src="_images/twitter.svg" class="link_icon">Twitter</a>
         <p></p>
-        <a href="${json.links.elon_twitter}">Elon Musk twitter</a>
+        <a href="${json.links.elon_twitter}" target="_blank"><img src="_images/twitter.svg" class="link_icon">Elon Musk twitter</a>
         `
 
     }

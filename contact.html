@@ -40,14 +40,13 @@
             </ul>
         </nav>
         <h1>Contact</h1>
-        <main class="container">
+        <div class="form_wrapper">
             <form id="contactForm">
-
                 <div>
-                    <label>
+                    <label for="name">
                         Name - (required)
-                        <input name="name" id="name" />
                     </label>
+                    <input name="name" id="name" />
                     <div class="formError" id="nameError">Name - Cannot be empty</div>
                 </div>
                 <!--  -->
@@ -55,8 +54,8 @@
                 <div>
                     <label>
                         Email - (required)
-                        <input name="email" id="email" />
                     </label>
+                    <input name="email" id="email" />
                     <div class="formError" id="emailError">Please enter a valid email address</div>
                 </div>
                 <!--  -->
@@ -71,7 +70,11 @@
                 <div class="success"></div>
                 <button class="submitbtn">Submit</button>
             </form>
-        </main>
+        </div>
+    </div>
+    <footer>
+        <p>I am not affiliated, associated, authorized, endorsed by, or in any way officially connected with Space Exploration Technologies Corp (SpaceX), or any of its subsidiaries or its affiliates. The names SpaceX as well as related names, marks, emblems and images are registered trademarks of their respective owners.</p>
+    </footer>
 </body>
 
 <script src="scripts/contact.js"></script>
