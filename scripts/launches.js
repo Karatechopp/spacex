@@ -22,7 +22,7 @@ async function fetchLaunchDropdown() {
         ${latestLaunch}
         `
 
-        for (i = 0; i < json.length; i++) {
+        for (i = json.length - 1; i >= 0; i--) {
             dropdown.innerHTML += `
             <option value="${json[i].id}">${new Date(json[i].date_utc).toLocaleDateString("en-GB")} - ${json[i].name}</option>
         `
@@ -46,6 +46,9 @@ dropdown.onchange = function () {
 // Fetching specific launches from dropdown menu
 async function fetchLaunch(url) {
 
+    iframe_youtube_embed.innerHTML = ``;
+    container_launches_rocket.innerHTML = ``;
+    container_launches_resources.innerHTML = ``;
     container_launches.innerHTML = `<div class="loader"></div>`;
 
     try {
@@ -60,8 +63,9 @@ async function fetchLaunch(url) {
         }
 
         // fill in launch info
-        container_launches.innerHTML = `<h4>${json.name}</h4>`;
-        if (json.links.patch) { container_launches.innerHTML += `<img src="${json.links.patch.small}" class="patch" />` }
+        container_launches.innerHTML = `<h2>${json.name}</h2>`;
+        if (json.upcoming) { container_launches.innerHTML += `<p class="upcoming_warning">This is an upcoming launch, information might be limited</p>` }
+        if (json.links.patch.small) { container_launches.innerHTML += `<img src="${json.links.patch.small}" class="patch" />` }
         container_launches.innerHTML += `<p>${new Date(json.date_utc).toLocaleDateString("en-GB")}</p>`;
         if (json.links.flickr.original.length != 0) { container_launches.innerHTML += `<img src="${json.links.flickr.original[0]}" />` }
         if (json.details) { container_launches.innerHTML += `<p>${json.details}</p>` }
@@ -74,16 +78,20 @@ async function fetchLaunch(url) {
 
         if (json.links.youtube_id) {
             iframe_youtube_embed.innerHTML = `
-            <h4>Webcast</h4>
+            <h3>Webcast</h3>
         <iframe class="youtube_frame" src="https://www.youtube.com/embed/${json.links.youtube_id}" width="375" height="200" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
         `
         }
 
         // fill in resources
-        container_launches_resources.innerHTML = "";
-        if (json.links.reddit.campaign) { container_launches_resources.innerHTML = `<a href="${json.links.reddit.campaign}" target="_blank"><img class="link_icon" src="_images/reddit.svg" />Reddit campaign</a><p></p>` }
-        if (json.links.reddit.launch) { container_launches_resources.innerHTML += `<a href="${json.links.reddit.launch}" target="_blank"><img class="link_icon" src="_images/reddit.svg"" />Reddit launch</a><p></p>` }
-        if (json.links.wikipedia) { container_launches_resources.innerHTML += `<a href="${json.links.wikipedia}" target="_blank"><img class="link_icon" src="_images/wikipedia.svg" />Wikipedia article</a>` }
+        if (json.links.reddit.campaign || json.links.reddit.launch || json.links.wikipedia) {
+            container_launches_resources.innerHTML = `<h4>Resources</h4>`
+            if (json.links.reddit.campaign) { container_launches_resources.innerHTML += `<a href="${json.links.reddit.campaign}" target="_blank"><img class="link_icon" src="_images/reddit.svg" />Reddit campaign</a><p></p>` }
+            if (json.links.reddit.launch) { container_launches_resources.innerHTML += `<a href="${json.links.reddit.launch}" target="_blank"><img class="link_icon" src="_images/reddit.svg"" />Reddit launch</a><p></p>` }
+            if (json.links.wikipedia) { container_launches_resources.innerHTML += `<a href="${json.links.wikipedia}" target="_blank"><img class="link_icon" src="_images/wikipedia.svg" />Wikipedia article</a>` }
+        } else {
+
+        }
     }
     catch (error) {
         console.log("Error fetchLaunch msg:", error);
@@ -99,10 +107,10 @@ async function fetchRocket(rocketurl) {
 
         container_launches_rocket.innerHTML = `
             <h4>${jsonRocket.name}</h4>
-                <img src="${jsonRocket.flickr_images[1]}">
+                <img src="${jsonRocket.flickr_images[0]}">
                     <p>Height: ${jsonRocket.height.meters}m</p>
-                    <p>Diameter:${jsonRocket.diameter.meters}m</p>
-                    <p>Mass:${jsonRocket.mass.kg}kg</p>
+                    <p>Diameter: ${jsonRocket.diameter.meters}m</p>
+                    <p>Mass: ${jsonRocket.mass.kg.toLocaleString("en-GB")}kg</p>
                     <p>${jsonRocket.description}</p>
                     `
     }
@@ -110,6 +118,3 @@ async function fetchRocket(rocketurl) {
         console.log("Error FetchLaunchRocket msg:", error);
     }
 }
-
-
-// populate the page with the latest launch on initial load

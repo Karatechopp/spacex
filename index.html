@@ -9,18 +9,17 @@
     <link rel="stylesheet" href="style.css" />
     <meta name="keywords" content="HTML,CSS" />
     <meta charset="utf-8" />
-    <meta name="author" content="Øyvind Yndestad" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="SpaceXtravaganza - A microsite dedicated to launch info about spaceX">
+    <meta name="description" content="SpaceXtravaganza - A microsite dedicated to launch info about spaceX - Select launches here to learn more about them and the rockets used">
     <title>
-        SpaceXtravaganza - work in progress
+        SpaceX - View all launches
     </title>
 </head>
 
 <body>
     <div class="wrapper">
         <nav>
-            <img src="_images/spacex.svg">
+            <img src="_images/spacex.svg" alt="spacex logo">
             <ul>
                 <li>
                     <a href="index.html">Launches</a>
@@ -31,7 +30,7 @@
                 </li>
                 <li class="nav_separator">|</li>
                 <li>
-                    <a href="about.html">History</a>
+                    <a href="history.html">History</a>
                 </li>
                 <li class="nav_separator">|</li>
                 <li>
@@ -40,7 +39,8 @@
             </ul>
         </nav>
         <h1>Launches</h1>
-        <select>
+        <label for="launches"></label>
+        <select name="launch_select" id="launches">
         </select>
 
         <div class="container_launches">
@@ -54,7 +54,7 @@
         <div class="container_launches_rocket">
             <!-- Rocket info about launch -->
         </div>
-        <h4>Resources</h4>
+
         <div class="container_launches_resources">
             <!-- Resources pertaining to launch -->
         </div>

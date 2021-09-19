@@ -12,6 +12,8 @@ async function fetchHistory(url) {
         const fetchResponse = await fetch(url);
         const json = await fetchResponse.json();
 
+
+
         for (i = 0; i < json.length; i++) {
 
             container_history.innerHTML += `
